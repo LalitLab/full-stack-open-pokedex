@@ -25,3 +25,7 @@ jobs:
       # Run the link to check for coding standards
       - name: lint
         run: npm run eslint
+
+      # Run the test
+      - name: test
+        run: npm test
