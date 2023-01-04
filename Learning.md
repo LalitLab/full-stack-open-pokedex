@@ -11,7 +11,7 @@
 
 First I forked the example repository [smartlyio/full-stack-open-pokedex](https://github.com/smartlyio/full-stack-open-pokedex) to my Github account as [LalitLab/full-stack-open-pokedex](https://github.com/LalitLab/full-stack-open-pokedex)
 
-    ![fork-repo](./images/fork_repo.png)
+![fork-repo](./images/fork_repo.png)
 
 #### Try the project locally on system
 
@@ -370,7 +370,7 @@ World!`
 
   ![pipeline_lint_error](./images/pipeline_lint_error.png)
 
-### Exercise 11.5 - Fix the code for linting
+### Exercise 11.6 - Fix the code for linting
 
 - Did some googling to look for steps to fix linting errors. Followed below links to fix them:
 
@@ -378,5 +378,26 @@ World!`
   - https://fullstackopen.com/en/part3/validation_and_es_lint#lint
   - https://stackoverflow.com/questions/40271230/how-to-run-eslint-fix-from-npm-script
 
-- Once the changes in this commit are pushed the workflow runs successfully without any error in off the steps as below:
+- Once the changes in the [2617261](https://github.com/LalitLab/full-stack-open-pokedex/commit/26172616bade7a2046d986f0f476affabc908318) commit are pushed the workflow runs successfully without any error in off the steps as below:
   ![pipeline_lint_fix](./images/pipeline_lint_fix.png)
+
+### Exercise 11.7 - Building and testing
+
+- In this exercise we will extend the pipeline workflow to execute `Test cases`
+- Added below step into the file testing the code
+
+  ```yaml
+  - name: test
+    run: npm test
+  ```
+
+- This step fails with error due to issue in one the test case.
+
+  ![test_err_1](./images/test_err_1.png)
+  ![test_err_2](./images/test_err_2.png)
+
+### Exercise 11.8 - Fix failing integration test
+
+- Once the changes in [9e8629f](https://github.com/LalitLab/full-stack-open-pokedex/commit/9e8629f0d5750ff4f7044a45cfd4d1b57824465a) commit are pushed to master branch the pipeline GH action triggers and runs successfully.
+
+  ![test_successful](./images/test_successful.png)
