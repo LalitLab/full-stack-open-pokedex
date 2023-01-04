@@ -3,13 +3,19 @@
 1. Follow instructions: [Introduction to CI/CD](https://fullstackopen.com/en/part11/introduction_to_ci_cd)
 2. Complete exercises: [Getting started with GitHub Actions](https://fullstackopen.com/en/part11/getting_started_with_git_hub_actions)
 
-## STEPS:
+## Exercises
 
-1.  First I forked the example repository [smartlyio/full-stack-open-pokedex](https://github.com/smartlyio/full-stack-open-pokedex) to my Github account as [LalitLab/full-stack-open-pokedex](https://github.com/LalitLab/full-stack-open-pokedex)
+### Exercise 11.2 - Fork the repo and try on system
+
+#### Fork the example repository:
+
+First I forked the example repository [smartlyio/full-stack-open-pokedex](https://github.com/smartlyio/full-stack-open-pokedex) to my Github account as [LalitLab/full-stack-open-pokedex](https://github.com/LalitLab/full-stack-open-pokedex)
 
     ![fork-repo](./images/fork_repo.png)
 
-2.  Then cloned the repository to my system to implement the exercises locally.
+#### Try the project locally on system
+
+1.  Then cloned the repository to my system to implement the exercises locally.
 
     <details>
       <summary> clone the repo locally</summary>
@@ -25,7 +31,7 @@
 
     </details>
 
-3.  Run `npm install` locally to install project dependencies
+2.  Run `npm install` locally to install project dependencies
 
     <details>
       <summary> install dependencies</summary>
@@ -86,7 +92,7 @@
 
     </details>
 
-4.  Start the code in development mode
+3.  Start the code in development mode
 
     <details>
       <summary>app started in development mode</summary>
@@ -141,7 +147,7 @@
 
     </details>
 
-5.  Now run tests
+4.  Now run tests
 
     <details>
       <summary>running tests locally</summary>
@@ -245,7 +251,7 @@
 
     </details>
 
-6. Now run lint
+5.  Now run lint
 
     <details>
       <summary>npm run eslint</summary>
@@ -279,3 +285,31 @@
     ```
 
     </details>
+
+## Exercise 11.3 - Create `Hello World!` workflow
+
+In this exercise, the intention is to get started with the GitHub actions. Create a simple workflow through which we will print `Hello World!` in GitHub action.
+
+- Created folder `.github/workflows`. GitHub Actions lives under this path.
+- Next created a `hello.yaml` file containing the GitHub action code below to print `Hello
+World!`
+
+  ```yaml
+  name: Hello World! # Name of the workflow
+
+  on: # This is used to manage the workflow triggering
+    push:
+      branches:
+        - master
+
+  jobs: # This jobs will be executed when workflow triggers
+    hello_world_job: # Name of the Job
+      runs-on: ubuntu-20.04 # The GitHub runner will use Ubuntu 20.04 as OS steps:
+      steps:
+        - name: Say hello
+          run: echo "Hello World!"
+  ```
+
+- Once the code with the hello workflow was commited to master branch the `Hello World!` workflow got triggered immediately.
+
+![hello_world_workflow_1](./images/hello_world_workflow_1.png)
