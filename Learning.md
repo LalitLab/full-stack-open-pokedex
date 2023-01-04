@@ -403,3 +403,22 @@ World!`
   ![test_successful](./images/test_successful.png)
 
 ### Exercise 11.9 - Add Simple end to test to test UI functionality
+
+- Used documentation https://fullstackopen.com/en/part5/end_to_end_testing to use cypruss framework to implement end to end testing.
+- Added frontend tests in [b806136](https://github.com/LalitLab/full-stack-open-pokedex/commit/b8061360f08d92c90734b8cc2e489cdb1f50eb22) commit.
+- Extended the pipeline workflow with below steps
+
+  ```yaml
+  # End to end test frontend functionality
+  - name: e2e tests
+    uses: cypress-io/github-action@v4
+    with:
+      build: npm run build
+      start: npm run start-prod
+      wait-on: http://localhost:3000
+  ```
+
+- Pipeline workflow ran successfully without any errors.
+
+  ![e2e_test_1](./images/e2e_test_1.png)
+  ![e2e_test_2](./images/e2e_test_2.png)
