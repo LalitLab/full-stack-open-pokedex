@@ -286,7 +286,7 @@ First I forked the example repository [smartlyio/full-stack-open-pokedex](https:
 
     </details>
 
-## Exercise 11.3 - Create `Hello World!` workflow
+### Exercise 11.3 - Create `Hello World!` workflow
 
 In this exercise, the intention is to get started with the GitHub actions. Create a simple workflow through which we will print `Hello World!` in GitHub action.
 
@@ -313,3 +313,21 @@ World!`
 - Once the code with the hello workflow was commited to master branch the `Hello World!` workflow got triggered immediately.
 
 ![hello_world_workflow_1](./images/hello_world_workflow_1.png)
+
+### Exercise 11.4 - Extend the `Hello World!` workflow to display date and directory content
+
+- In this exercise, we extend the hello.yaml workflow to display date and directory content.
+
+  For this added below two steps to the `hello_world_job` job.
+
+  ```yaml
+  - name: Now it is
+    run: date
+
+  - name: Directory content
+    run: ls -l
+  ```
+
+- This commit in the workflow results in below:
+
+  ![hello_world_workflow_2](./images/hello_world_workflow_2.png)
