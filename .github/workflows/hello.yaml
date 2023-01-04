@@ -1,12 +1,12 @@
-name: Hello World!      # Name of the workflow
+name: Hello World! # Name of the workflow
 
-on:                     # This is used to manage the workflow triggering
+on: # This is used to manage the workflow triggering
   push:
     branches:
       - master
 
-jobs:                   # This is the jobs that will be executed when workflow triggers
-  hello_world_job:      # Name of the Job
+jobs: # This is the jobs that will be executed when workflow triggers
+  hello_world_job: # Name of the Job
     runs-on: ubuntu-20.04 # The GitHub runner will use Ubuntu 20.04 as OS
     steps:
       - name: Say hello

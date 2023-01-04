@@ -1,0 +1,27 @@
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+      # GitHub action to clone the repository code to vm/container running action
+      - uses: actions/checkout@v3
+
+      # GitHub action to install node
+      - uses: actions/setup-node@v3
+        with:
+          # Install node with version 16
+          node-version: "16"
+
+      # Install node dependencies for the project
+      - name: npm install
+        run: npm install
+
+      # Run the link to check for coding standards
+      - name: lint
+        run: npm run eslint
