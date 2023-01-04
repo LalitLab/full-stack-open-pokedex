@@ -401,3 +401,5 @@ World!`
 - Once the changes in [9e8629f](https://github.com/LalitLab/full-stack-open-pokedex/commit/9e8629f0d5750ff4f7044a45cfd4d1b57824465a) commit are pushed to master branch the pipeline GH action triggers and runs successfully.
 
   ![test_successful](./images/test_successful.png)
+
+### Exercise 11.9 - Add Simple end to test to test UI functionality

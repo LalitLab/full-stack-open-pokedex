@@ -20,6 +20,8 @@ module.exports = {
   ],
   globals: {
     process: "true",
+    module: "true",
+    cy: "true"
   },
   "rules": {
     "indent": [
