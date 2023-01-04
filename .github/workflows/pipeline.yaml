@@ -29,3 +29,11 @@ jobs:
       # Run the test
       - name: test
         run: npm test
+
+      # End to end test frontend functionality
+      - name: e2e tests
+        uses: cypress-io/github-action@v4
+        with:
+          build: npm run build
+          start: npm run start-prod
+          wait-on: http://localhost:3000
