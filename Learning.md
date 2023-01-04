@@ -331,3 +331,52 @@ World!`
 - This commit in the workflow results in below:
 
   ![hello_world_workflow_2](./images/hello_world_workflow_2.png)
+
+### Exercise 11.5 - In this create a new workflow to check the code for JavaScript linting
+
+- Create a new file `pipeline.yaml` in the path `.github/workflows` with the below content
+
+  ```yaml
+  name: Deployment pipeline
+
+  on:
+    push:
+      branches:
+        - master
+
+  jobs:
+    simple_deployment_pipeline:
+      runs-on: ubuntu-20.04
+      steps:
+        # GitHub Action to clone the repository code to vm/container running action
+        - uses: actions/checkout@v3
+
+        # GitHub action to install node
+        - uses: actions/setup-node@v3
+          with:
+            # Install node with version 16
+            node-version: "16"
+
+        # Install node dependencies for the project
+        - name: npm install
+          run: npm install
+
+        # Run the link to check for coding standards
+        - name: lint
+          run: npm run eslint
+  ```
+
+- As soon as the above workflow is commited to master branch it triggers the GH action which result in error in the lint as code is already having lint problems.
+
+  ![pipeline_lint_error](./images/pipeline_lint_error.png)
+
+### Exercise 11.5 - Fix the code for linting
+
+- Did some googling to look for steps to fix linting errors. Followed below links to fix them:
+
+  - https://eslint.org/docs/latest/user-guide/configuring/language-options#specifying-globals
+  - https://fullstackopen.com/en/part3/validation_and_es_lint#lint
+  - https://stackoverflow.com/questions/40271230/how-to-run-eslint-fix-from-npm-script
+
+- Once the changes in this commit are pushed the workflow runs successfully without any error in off the steps as below:
+  ![pipeline_lint_fix](./images/pipeline_lint_fix.png)
